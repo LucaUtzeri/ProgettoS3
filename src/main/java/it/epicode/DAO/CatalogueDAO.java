@@ -19,7 +19,7 @@ public class CatalogueDAO {
         transaction.begin();
         em.persist(catItem);
         transaction.commit();
-        System.out.println("Item saved");
+        System.out.println( catItem.getTitle() + " saved");
     }
 
     public Catalogue findItem (Integer isbn) {

@@ -2,7 +2,6 @@ package it.epicode.entities.classes;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.time.Year;
 @Entity
 @DiscriminatorValue("book")
 public class Book extends Catalogue{
@@ -11,7 +10,7 @@ public class Book extends Catalogue{
 
     public Book(){}
 
-    public Book(String title, Year releaseYear, Integer numOfPages, String author, String genre) {
+    public Book(String title, int releaseYear, Integer numOfPages, String author, String genre) {
         super(title, releaseYear, numOfPages);
         this.author = author;
         this.genre = genre;

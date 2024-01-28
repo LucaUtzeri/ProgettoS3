@@ -1,7 +1,6 @@
 package it.epicode.entities.classes;
 
 import javax.persistence.*;
-import java.time.Year;
 @Entity
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "catalogue")
@@ -15,7 +14,7 @@ public abstract class Catalogue {
     @Column (name = "title")
     private String title;
     @Column (name = "release_year")
-    private Year releaseYear;
+    private int releaseYear;
     @Column (name = "number_of_pages")
     private Integer numOfPages;
 
@@ -23,7 +22,7 @@ public abstract class Catalogue {
 
     public Catalogue(){}
 
-    public Catalogue(String title, Year releaseYear, Integer numOfPages) {
+    public Catalogue(String title, int releaseYear, Integer numOfPages) {
         this.title = title;
         this.releaseYear = releaseYear;
         this.numOfPages = numOfPages;
@@ -45,11 +44,11 @@ public abstract class Catalogue {
         this.title = title;
     }
 
-    public Year getReleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Year releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
