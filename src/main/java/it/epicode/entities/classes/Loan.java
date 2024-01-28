@@ -1,13 +1,22 @@
 package it.epicode.entities.classes;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name = "loans")
 public class Loan {
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private int id;
+    @Column (name = "item_loaned")
     private String itemLoaned;
+    @Column (name = "start_of_loan")
     private Date startOfLoan;
+    @Column (name = "expected_restituition")
     private Date expectedRestitution;
+    @Column (name = "actual_restituition")
     private Date actualRestitution;
+    @Column (name = "user_card")
     private User userCard;
     public Loan(){}
 

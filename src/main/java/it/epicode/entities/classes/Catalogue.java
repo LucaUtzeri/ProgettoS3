@@ -1,51 +1,60 @@
 package it.epicode.entities.classes;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.Year;
-
+@Entity
+@Table(name = "catalogue")
 public abstract class Catalogue {
-    private Integer IsbnCode;
-    private String Title;
-    private Year ReleaseYear;
-    private Integer NumOfPages;
+
+    @Column (name = "isbn_code")
+    private Integer isbnCode;
+    @Column (name = "title")
+    private String title;
+    @Column (name = "release_year")
+    private Year releaseYear;
+    @Column (name = "number_of_pages")
+    private Integer numOfPages;
 
 
     public Catalogue(){}
 
     public Catalogue(String title, Year releaseYear, Integer numOfPages) {
-        Title = title;
-        ReleaseYear = releaseYear;
-        NumOfPages = numOfPages;
+        this.title = title;
+        this.releaseYear = releaseYear;
+        this.numOfPages = numOfPages;
     }
 
     public Integer getIsbnCode() {
-        return IsbnCode;
+        return isbnCode;
     }
 
     public void setIsbnCode(Integer isbnCode) {
-        IsbnCode = isbnCode;
+        this.isbnCode = isbnCode;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public Year getReleaseYear() {
-        return ReleaseYear;
+        return releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
-        ReleaseYear = releaseYear;
+        this.releaseYear = releaseYear;
     }
 
     public Integer getNumOfPages() {
-        return NumOfPages;
+        return numOfPages;
     }
 
     public void setNumOfPages(Integer numOfPages) {
-        NumOfPages = numOfPages;
+        this.numOfPages = numOfPages;
     }
 }
