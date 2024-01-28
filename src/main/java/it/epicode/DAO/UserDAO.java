@@ -18,7 +18,7 @@ public class UserDAO {
         transaction.begin();
         em.persist(user);
         transaction.commit();
-        System.out.println("User saved");
+        System.out.println( user.getName() + " saved");
     }
 
     public User findUser (Integer cardNum) {
