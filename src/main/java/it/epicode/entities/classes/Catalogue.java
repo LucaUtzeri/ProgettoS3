@@ -1,13 +1,15 @@
 package it.epicode.entities.classes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.Year;
 @Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "catalogue")
 public abstract class Catalogue {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private int id;
     @Column (name = "isbn_code")
     private Integer isbnCode;
     @Column (name = "title")
@@ -16,6 +18,7 @@ public abstract class Catalogue {
     private Year releaseYear;
     @Column (name = "number_of_pages")
     private Integer numOfPages;
+
 
 
     public Catalogue(){}

@@ -1,17 +1,23 @@
 package it.epicode.entities.classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
+
     private String name;
+    @Column (name = "last_name")
     private String lastName;
+    @Column (name = "date_of_birth")
     private Date dateOfBirth;
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer cardNumber;
+    @OneToMany (mappedBy = "user")
+    @Column (name = "loan_list")
     private Set<Loan> loanList;
 
     public User(){}

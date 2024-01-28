@@ -8,31 +8,34 @@ public class Loan {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int id;
-    @Column (name = "item_loaned")
-    private String itemLoaned;
+
+    @ManyToOne
+    @JoinColumn (name = "item_loaned_id")
+    private Catalogue itemLoaned;
     @Column (name = "start_of_loan")
     private Date startOfLoan;
     @Column (name = "expected_restituition")
     private Date expectedRestitution;
     @Column (name = "actual_restituition")
     private Date actualRestitution;
-    @Column (name = "user_card")
-    private User userCard;
+    @ManyToOne
+    @JoinColumn (name = "user_card")
+    private User user;
     public Loan(){}
 
-    public Loan(String itemLoaned, Date startOfLoan, Date expectedRestitution, Date actualRestitution, User userCard) {
+    public Loan(Catalogue itemLoaned, Date startOfLoan, Date expectedRestitution, Date actualRestitution, User userCard) {
         this.itemLoaned = itemLoaned;
         this.startOfLoan = startOfLoan;
         this.expectedRestitution = expectedRestitution;
         this.actualRestitution = actualRestitution;
-        this.userCard = userCard;
+        this.user = user;
     }
 
-    public String getItemLoaned() {
+    public Catalogue getItemLoaned() {
         return itemLoaned;
     }
 
-    public void setItemLoaned(String itemLoaned) {
+    public void setItemLoaned(Catalogue itemLoaned) {
         this.itemLoaned = itemLoaned;
     }
 
@@ -61,10 +64,10 @@ public class Loan {
     }
 
     public User getUserCard() {
-        return userCard;
+        return user;
     }
 
     public void setUserCard(User userCard) {
-        this.userCard = userCard;
+        this.user = userCard;
     }
 }

@@ -8,6 +8,10 @@ import java.util.List;
 
 
 public class CatalogueDAO {
+
+    public CatalogueDAO(EntityManager em) {
+        this.em = em;
+    }
     private EntityManager em;
 
     public void save(Catalogue catItem){

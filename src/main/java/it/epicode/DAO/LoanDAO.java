@@ -7,6 +7,10 @@ import javax.persistence.*;
 import java.util.List;
 
 public class LoanDAO {
+
+    public LoanDAO(EntityManager em) {
+        this.em = em;
+    }
     private EntityManager em;
     public void save(Loan loan){
         EntityTransaction transaction = em.getTransaction();
